@@ -1,5 +1,8 @@
 # Publisher and Subscribers 
 
+- Publisher : 생산자, 배출자, 크리에이터, 배설자 
+- Subscriber : 소비자, 구독 받는 사람 
+
 ```swift
 import UIKit
 import Combine
