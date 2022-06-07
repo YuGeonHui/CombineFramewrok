@@ -1,6 +1,9 @@
 # Publisher
 
-- Publisher : 생산자, 배출자, 크리에이터, 배설자 
+- Publisher
+    - 이런 단어가 어울림: **생산자, 배출자, 크리에이터, 배설자**
+- Subscriber
+    - 이런 단어가 어울림: **소비자, 구독자, 받는 사람**
 
 ```swift
 protocol Publisher {
@@ -21,6 +24,27 @@ protocol Publisher {
     - NotificationCenter
     - Timer
     - URLSession.dataTask
+
+```swift
+protocol Subscriber {
+    associatedtype Input
+    associatedtype Failure: Error 
+    
+    func receive(subscription: Subscription)
+    func reveive(_ input: Input) -> Subscribers.Demand
+    func revevie(completion: Subscribers.Completion<Failure>)
+ }
+```
+- Publisher 에게 데이터 요청함
+- Input, Failure 타입이 정의 필요함
+- Publisher 구독후, 갯수를 요청함
+- 파이프라인을 취소할 수 있음
+- 빌트인 Subscriber인  `assign` 과 `sink` 가 있음
+    - `assign` 는 Publisher가 제공한 데이터를 특정 객체의 키패스에 할당
+    - `sink` 는 Publisher가 제공한 데이터를 받을수 있는 클로져를 제공함
+
+# Subscriber & Publisher Pattern
+![image](https://user-images.githubusercontent.com/96224311/172390945-d5ba482c-ab03-483d-b82d-72d500a20f93.png)
 
 
 ```swift
