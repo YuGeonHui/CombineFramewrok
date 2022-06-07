@@ -20,7 +20,7 @@ protocol Publisher {
 - 빌트인 Publisher인 `Just`, `Future` 가 있음
     - `Just` 는 값을 다루고
     - `Future` 는 Function 을 다룸
-- iOS 에서는 자동으로 제공해주는 녀석들이 있음
+- iOS 에서는 자동으로 Publisher를 제공해주는 녀석들이 있음
     - NotificationCenter
     - Timer
     - URLSession.dataTask
