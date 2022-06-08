@@ -34,6 +34,9 @@ class Weather {
     // Temperature now: 20.0
     // Temperature now: 25.0
 }
+```
+
+# Subject Example 
 
 ```swift
 import UIKit
