@@ -11,6 +11,29 @@
         - Subcriber가 달라고 요청하면,
         - 최근에 가지고 있던 값을 전달하고, 그때 부터, 받은 값을 전달 함
         - 전달한 값을 들고 있음
+# @Published (Publisher)
+- `@Published` 로 선언된 프로퍼티를 퍼블리셔로 만들어줌
+- 클래스에 한해서 사용됨 (구조체에서 사용안됨)
+- `$` 를 이용해서 퍼블리셔에 접근할수 있음
+
+```swift
+class Weather {
+
+    @Published var temperature: Dobule
+    init(temperature: Double) {
+        self.temperature = temperature
+    }
+    
+    let weather = Wehater(temperature: 20)
+    let subscription = weather.$temperature.sink {
+        print("Temperature now: \($0)")
+    }
+    
+    weather.temperature = 25 
+    
+    // Temperature now: 20.0
+    // Temperature now: 25.0
+}
 
 ```swift
 import UIKit
